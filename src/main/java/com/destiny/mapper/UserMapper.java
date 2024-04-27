@@ -14,6 +14,7 @@ public interface UserMapper {
 
     /**
      * 根据用户名查找用户
+     *
      * @param username 查询的用户名
      * @return 找到的用户信息，null表示没找到
      */
@@ -22,6 +23,7 @@ public interface UserMapper {
 
     /**
      * 插入一条用户信息
+     *
      * @param username 用户名
      * @param password 密码
      */
@@ -29,12 +31,29 @@ public interface UserMapper {
             "values(#{username}, #{password}, now(), now())")
     void add(String username, String password);
 
+    /**
+     * 更新用户信息
+     *
+     * @param user 用户
+     */
     @Update("update user set nickname=#{nickname}, email=#{email}, user_pic=#{userPic}, update_time=#{updateTime} where id=#{id}")
     void update(User user);
 
+    /**
+     * 更新用户头像
+     *
+     * @param avatarPath 用户头像路径
+     * @param id         用户id
+     */
     @Update("update user set user_pic=#{avatarPath}, update_time=now() where id=#{id}")
     void updateAvatar(String avatarPath, Integer id);
 
+    /**
+     * 更新
+     *
+     * @param newPwd 新密码
+     * @param id     用户id
+     */
     @Update("update user set password=#{newPwd}, update_time=now() where id=#{id}")
     void updatePwd(String newPwd, Integer id);
 }

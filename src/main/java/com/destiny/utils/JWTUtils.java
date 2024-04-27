@@ -6,6 +6,9 @@ import com.auth0.jwt.algorithms.Algorithm;
 import java.util.Date;
 import java.util.Map;
 
+/**
+ * @author zhukang
+ */
 public class JWTUtils {
     private static final String KEY = "destiny";
 

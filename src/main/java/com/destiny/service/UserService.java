@@ -7,9 +7,9 @@ import com.destiny.pojo.User;
  */
 public interface UserService {
     /**
-     *
-     * @param username
-     * @return
+     * 根据名字查用户信息
+     * @param username 用户名
+     * @return 查询到的用户
      */
     User findByUserName(String username);
 
@@ -18,6 +18,10 @@ public interface UserService {
      */
     void register(String username, String password);
 
+    /**
+     * 更新用户信息
+     * @param user d
+     */
     void update(User user);
 
     void updateAvatar(String avatarUrl);
